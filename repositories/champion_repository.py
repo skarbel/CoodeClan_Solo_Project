@@ -3,7 +3,7 @@ from models.champion import Champion
 from models.skill import Skill
 
 def save(champion):
-    sql = "INSERT INTO champions( champion_name, champion_class, release_date) VALUES ( %s , %s, %s) RETURNING id"
+    sql = "INSERT INTO champions( champion_name, champion_class, release_date) VALUES ( %s , %s, %s) RETURNING *"
     values = [champion.champion_name, champion.champion_class, champion.release_date]
     results = run_sql( sql, values )
     champion.id = results[0]['id']

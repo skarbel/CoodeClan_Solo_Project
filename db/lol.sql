@@ -10,9 +10,7 @@ CREATE TABLE champions (
 
 CREATE TABLE skills (
     id SERIAL PRIMARY KEY,
-    skill_Q VARCHAR(255),
-    skill_W VARCHAR(255),
-    skill_E VARCHAR(255),
-    skill_R VARCHAR(255),
+    skill_name VARCHAR(255),
+    skill_shortcut VARCHAR(255),
     champion_id INT REFERENCES champions(id)
 );

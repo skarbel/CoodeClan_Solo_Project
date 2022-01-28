@@ -1,7 +1,7 @@
-class Pet:
-    def __init__(self, pet_name, pet_dob, pet_type, treatment_notes, id = None):
-        self.pet_name = pet_name
-        self.pet_dob = pet_dob
-        self.pet_type = pet_type
-        self.treatment_notes = treatment_notes
+class Skill:
+    def __init__(self, skill_Q, skill_W, skill_E, skill_R, id = None):
+        self.skill_Q = skill_Q
+        self.skill_W = skill_W
+        self.skill_E = skill_E
+        self.skill_R = skill_R
         self.id = id

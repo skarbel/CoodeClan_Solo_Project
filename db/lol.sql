@@ -1,17 +1,18 @@
-DROP TABLE IF EXISTS pets;
-DROP TABLE IF EXISTS customers;
+DROP TABLE IF EXISTS skills;
+DROP TABLE IF EXISTS champions;
 
-CREATE TABLE customers (
+CREATE TABLE champions (
     id SERIAL PRIMARY KEY,
-    customer_name VARCHAR(255),
-    contact_details VARCHAR(255),
-    registered BOOLEAN
+    champion_name VARCHAR(255),
+    champion_class VARCHAR(255),
+    release_date VARCHAR(255)
 );
 
-CREATE TABLE pets (
+CREATE TABLE skills (
     id SERIAL PRIMARY KEY,
-    pet_name VARCHAR(255),
-    pet_dob VARCHAR(255),
-    pet_type VARCHAR(255),
-    treatment_notes VARCHAR(255)
+    skill_Q VARCHAR(255),
+    skill_W VARCHAR(255),
+    skill_E VARCHAR(255),
+    skill_R VARCHAR(255),
+    champion_id INT REFERENCES champions(id)
 );

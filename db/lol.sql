@@ -4,6 +4,7 @@ DROP TABLE IF EXISTS champions;
 CREATE TABLE champions (
     id SERIAL PRIMARY KEY,
     champion_name VARCHAR(255),
+    champion_title VARCHAR(255),
     champion_class VARCHAR(255),
     release_date VARCHAR(255)
 );

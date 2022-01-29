@@ -17,7 +17,7 @@ def select(id):
     result = run_sql(sql, values)[0]
     if result is not None:
         champion = Champion(result['champion_name'], result['champion_title'], result['champion_class'], result['release_date'], result['id'])
-        return champion
+    return champion
 
 def select_all():
     champions = []
@@ -39,5 +39,5 @@ def delete_all():
 
 def update(champion):
     sql = "UPDATE champions SET (champion_name, champion_title, champion_class, release_date) = ( %s, %s , %s, %s ) WHERE id = %s"
-    values = [champion.first_name, champion.last_name, champion.id]
+    values = [champion.champion_name, champion.champion_title, champion.champion_class, champion.release_date, champion.id]
     run_sql(sql, values)

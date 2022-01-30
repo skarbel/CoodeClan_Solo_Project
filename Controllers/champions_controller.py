@@ -14,7 +14,8 @@ def champions():
 @champions_blueprint.route('/champions/<id>', methods=['GET'])
 def show_champion(id):
     champion = champion_repository.select(id)
-    return render_template('champions/show.html', champion = champion)
+    skill = champion_repository.skills(id)
+    return render_template('champions/show.html', champion = champion, skill = skill)
 
 @champions_blueprint.route('/champions/<id>/delete', methods=['POST'])
 def delete_champion(id):
@@ -35,8 +36,8 @@ def create_champion():
     champion_title = request.form['champion_title']
     champion_class  = request.form['champion_class']
     release_date  = request.form['release_date']
-    skill = skill_repository.select(request.form['skill_id'])
-    champion = Champion(champion_name, champion_title, champion_class, release_date, skill)
+    # skill = skill_repository.select(request.form['skill_id'])
+    champion = Champion(champion_name, champion_title, champion_class, release_date)
     champion_repository.save(champion)
     return redirect('/champions')
 

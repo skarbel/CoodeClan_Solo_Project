@@ -41,3 +41,14 @@ def update(champion):
     sql = "UPDATE champions SET (champion_name, champion_title, champion_class, release_date) = ( %s, %s , %s, %s ) WHERE id = %s"
     values = [champion.champion_name, champion.champion_title, champion.champion_class, champion.release_date, champion.id]
     run_sql(sql, values)
+
+#function to pull all the skills from a specific champion and add them in a list. To be used in /champions/show.html
+def skills(champion):
+    skills = []
+    sql = "SELECT * FROM skills WHERE champion_id = s%"
+    values = [champion]
+    results = run_sql(sql,values)
+    for row in results:
+        skill = Skill(row['champion'], row['skill_name'], row['skill_shortcut'], row['id'])
+        skills.append(skill)
+    return skills

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+    <title> {{ champion.champion_name }} </title>
+</head>
+<body>
+    <img src="/static/Zed.webp" alt="zed" style background-image:url('/static/zeb.webp') >
+    <p>Name: {{ champion.champion_name }}</p>
+    <p>Class: {{ champion.champion_class }}</p>
+    <p>Skill List:</p>
+<ul>
+    {% for skill in skills %}
+    <li> {{skill.skill_name}} </li>
+    {% endfor %}
+</ul>
+<p><a href="/champions/{{champion.id}}/edit">Edit</a></p>
+
+<p><a href="/champions/{{champion.id}}/delete">Delete</a></p>
+</body>
+{% endblock %}

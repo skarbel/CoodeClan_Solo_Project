@@ -45,10 +45,10 @@ def update(champion):
 #function to pull all the skills from a specific champion and add them in a list. To be used in /champions/show.html
 def skills(champion):
     skills = []
-    sql = "SELECT * FROM skills WHERE champion_id = s%"
-    values = [champion]
+    sql = "SELECT * FROM skills WHERE champion_id = %s"
+    values = [champion.id]
     results = run_sql(sql,values)
     for row in results:
-        skill = Skill(row['champion'], row['skill_name'], row['skill_shortcut'], row['id'])
+        skill = Skill(['champion_id'], row['skill_name'], row['skill_shortcut'], row['id'])
         skills.append(skill)
     return skills

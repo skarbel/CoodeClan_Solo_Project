@@ -3,13 +3,14 @@
     <title> {{ champion.champion_name }} </title>
 </head>
 <body>
-    <img src="/static/Zed.webp" alt="zed" style background-image:url('/static/zeb.webp') >
+    <img src="/static/{{champion.champion_name}}.webp" alt="zed" style background-image:url('/static/{{champion.champion_name}}.webp') >
     <p>Name: {{ champion.champion_name }}</p>
     <p>Class: {{ champion.champion_class }}</p>
     <p>Skill List:</p>
 <ul>
     {% for skill in skills %}
-    <li> {{skill.skill_name}} </li>
+    <ul> {{skill.skill_name}} </ul>
+    <img src="/static/{{skill.skill_name}}.webp" alt="skill">
     {% endfor %}
 </ul>
 <p><a href="/champions/{{champion.id}}/edit">Edit</a></p>

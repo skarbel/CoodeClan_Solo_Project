@@ -4,7 +4,6 @@ from models.champion import Champion
 from models.skill import Skill
 import repositories.champion_repository as champion_repository
 import repositories.skill_repository as skill_repository
-import pdb
 
 champions_blueprint = Blueprint("champions", __name__)
 
@@ -16,12 +15,10 @@ def champions():
 @champions_blueprint.route('/champions/<id>', methods=['GET'])
 def show_champion(id):
     champion = champion_repository.select(id)
-    skills = champion_repository.skills(champion)
+    skill = champion_repository.skills(id)
+    return render_template('champions/show.html', champion = champion, skill = skill)
 
-
-    return render_template('champions/show.html', champion = champion, skills = skills)
-
-@champions_blueprint.route('/champions/<id>/delete', methods=['GET'])
+@champions_blueprint.route('/champions/<id>/delete', methods=['POST'])
 def delete_champion(id):
     champion_repository.delete(id)
     return redirect('/champions')
@@ -31,8 +28,8 @@ def delete_champion(id):
 
 @champions_blueprint.route('/champions/new', methods=['GET'])
 def new_champion():
-    # skills = skill_repository.select_all()
-    return render_template('champions/new.html')
+    skills = skill_repository.select_all()
+    return render_template('champions/new.html', all_skills = skills)
 
 @champions_blueprint.route('/champions',  methods=['POST'])
 def create_champion():
@@ -51,9 +48,14 @@ def create_champion():
 @champions_blueprint.route('/champions/<id>/edit', methods=['GET'])
 def edit_champion(id):
     champion = champion_repository.select(id)
+<<<<<<< HEAD
     skills = skill_repository.select_all() # change this if it doesn't work
 
     return render_template('champions/edit.html', champion = champion, skills = skills)
+=======
+    skills = skill_repository.select_all()
+    return render_template('champions/edit.html', champion = champion, all_skills = skills)
+>>>>>>> parent of c06d086 (fixed an issue where edit wouldn't edit, fixed an issue where delete wouldn't delete if skills table had items in)
 
 @champions_blueprint.route('/champions/<id>', methods=['POST'])
 def update_champion(id):
@@ -61,12 +63,17 @@ def update_champion(id):
     champion_title = request.form['champion_title']
     champion_class = request.form['champion_class']
     release_date  = request.form['release_date']
+<<<<<<< HEAD
 
     champion = request.form['champion']
     skill_name = request.form['skill_name']
     skill_shortcut = request.form['skill_shortcut']
 
     champion = Champion(champion_name, champion_title, champion_class, release_date, id)
+=======
+    skill = skill_repository.select(request.form['skill_id'])
+    champion = Champion(champion_name, champion_title, champion_class, release_date, skill, id)
+>>>>>>> parent of c06d086 (fixed an issue where edit wouldn't edit, fixed an issue where delete wouldn't delete if skills table had items in)
     champion_repository.update(champion)
 
     skill = Skill(champion,skill_name, skill_shortcut, id)

@@ -1,7 +1,6 @@
 from db.run_sql import run_sql
 from models.champion import Champion
 from models.skill import Skill
-import pdb
 
 
 def save(champion):
@@ -30,7 +29,7 @@ def select_all():
     return champions
 
 def delete(id):
-    sql = "DELETE FROM champions WHERE id = %s"
+    sql = "DELETE  FROM champions WHERE id = %s"
     values = [id]
     run_sql(sql, values)
     
@@ -46,12 +45,10 @@ def update(champion):
 #function to pull all the skills from a specific champion and add them in a list. To be used in /champions/show.html
 def skills(champion):
     skills = []
-    sql = "SELECT * FROM skills WHERE champion_id = %s"
-    values = [champion.id]
-
+    sql = "SELECT * FROM skills WHERE champion_id = s%"
+    values = [champion]
     results = run_sql(sql,values)
-
     for row in results:
-        skill = Skill(champion, row['skill_name'], row['skill_shortcut'], row['id'])
+        skill = Skill(row['champion'], row['skill_name'], row['skill_shortcut'], row['id'])
         skills.append(skill)
     return skills

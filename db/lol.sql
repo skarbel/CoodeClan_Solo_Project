@@ -13,5 +13,5 @@ CREATE TABLE skills (
     id SERIAL PRIMARY KEY,
     skill_name VARCHAR(255),
     skill_shortcut VARCHAR(255),
-    champion_id INT REFERENCES champions(id) ON DELETE CASCADE
+    champion_id INT REFERENCES champions(id)
 );

@@ -5,8 +5,9 @@ from models.champion import Champion
 import repositories.champion_repository as champion_repository
 import repositories.skill_repository as skill_repository
 
-champion_repository.delete_all()
 skill_repository.delete_all()
+champion_repository.delete_all()
+
 
 #-----------------------------Champion Pool-----------------------------
 champion1 = Champion("Zed", "the Master of Shadows", "Assassin", "13/11/2012")
@@ -140,4 +141,4 @@ skill_repository.save(skill32)
 
 
 
-# pdb.set_trace()
+pdb.set_trace()

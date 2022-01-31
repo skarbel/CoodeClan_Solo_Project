@@ -3,6 +3,7 @@ from flask import Blueprint
 from models.champion import Champion
 import repositories.champion_repository as champion_repository
 import repositories.skill_repository as skill_repository
+import pdb
 
 champions_blueprint = Blueprint("champions", __name__)
 
@@ -14,10 +15,12 @@ def champions():
 @champions_blueprint.route('/champions/<id>', methods=['GET'])
 def show_champion(id):
     champion = champion_repository.select(id)
-    skill = champion_repository.skills(id)
-    return render_template('champions/show.html', champion = champion, skill = skill)
+    skills = champion_repository.skills(champion)
 
-@champions_blueprint.route('/champions/<id>/delete', methods=['POST'])
+
+    return render_template('champions/show.html', champion = champion, skills = skills)
+
+@champions_blueprint.route('/champions/<id>/delete', methods=['GET'])
 def delete_champion(id):
     champion_repository.delete(id)
     return redirect('/champions')
@@ -27,8 +30,8 @@ def delete_champion(id):
 
 @champions_blueprint.route('/champions/new', methods=['GET'])
 def new_champion():
-    skills = skill_repository.select_all()
-    return render_template('champions/new.html', all_skills = skills)
+    # skills = skill_repository.select_all()
+    return render_template('champions/new.html')
 
 @champions_blueprint.route('/champions',  methods=['POST'])
 def create_champion():
@@ -47,8 +50,8 @@ def create_champion():
 @champions_blueprint.route('/champions/<id>/edit', methods=['GET'])
 def edit_champion(id):
     champion = champion_repository.select(id)
-    skills = skill_repository.select_all()
-    return render_template('champions/edit.html', champion = champion, all_skills = skills)
+    # skills = skill_repository.select_all()
+    return render_template('champions/edit.html', champion = champion)
 
 @champions_blueprint.route('/champions/<id>', methods=['POST'])
 def update_champion(id):
@@ -56,7 +59,6 @@ def update_champion(id):
     champion_title = request.form['champion_title']
     champion_class = request.form['champion_class']
     release_date  = request.form['release_date']
-    skill = skill_repository.select(request.form['skill_id'])
-    champion = Champion(champion_name, champion_title, champion_class, release_date, skill, id)
+    champion = Champion(champion_name, champion_title, champion_class, release_date, id)
     champion_repository.update(champion)
     return redirect('/champions')

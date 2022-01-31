@@ -17,6 +17,8 @@ def champions():
 def show_champion(id):
     champion = champion_repository.select(id)
     skills = champion_repository.skills(champion)
+
+
     return render_template('champions/show.html', champion = champion, skills = skills)
 
 @champions_blueprint.route('/champions/<id>/delete', methods=['GET'])

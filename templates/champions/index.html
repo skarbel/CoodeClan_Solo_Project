@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <p> This is the champions page.</p>
+
+
+
+    <h1>Champions</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+        <th></th>
+    <th>Title</th>
+        <th></th>
+    <th>Class</th>
+        <th></th>
+    <th>Release Date</th>
+  </tr>
+  <tr>
+        {% for champion in champions %}
+    <td><a href="/champions/{{ champion.id }}"> {{champion.champion_name}} </a></td>
+    <td>|</td>
+    <td>{{ champion.champion_title }}</td>
+    <td>|</td>
+    <td>{{ champion.champion_class }}</td>
+    <td>|</td>
+    <td>{{ champion.release_date }}</td>
+  </tr>
+  {% endfor %}
+
+</table>
+
+<div>
+    <p>
+        <a href="/champions/new">Add a Champion</a>
+    </p>
+</div>
+
+{% endblock %}

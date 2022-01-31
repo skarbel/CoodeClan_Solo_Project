@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
 from models.champion import Champion
+from models.skill import Skill
 import repositories.champion_repository as champion_repository
 import repositories.skill_repository as skill_repository
 import pdb
@@ -48,8 +49,9 @@ def create_champion():
 @champions_blueprint.route('/champions/<id>/edit', methods=['GET'])
 def edit_champion(id):
     champion = champion_repository.select(id)
-    # skills = skill_repository.select_all()
-    return render_template('champions/edit.html', champion = champion)
+    skills = skill_repository.select_all() # change this if it doesn't work
+
+    return render_template('champions/edit.html', champion = champion, skills = skills)
 
 @champions_blueprint.route('/champions/<id>', methods=['POST'])
 def update_champion(id):
@@ -57,6 +59,15 @@ def update_champion(id):
     champion_title = request.form['champion_title']
     champion_class = request.form['champion_class']
     release_date  = request.form['release_date']
+
+    champion = request.form['champion']
+    skill_name = request.form['skill_name']
+    skill_shortcut = request.form['skill_shortcut']
+
     champion = Champion(champion_name, champion_title, champion_class, release_date, id)
     champion_repository.update(champion)
+
+    skill = Skill(champion,skill_name, skill_shortcut, id)
+    skill_repository.update(skill)
+
     return redirect('/champions')

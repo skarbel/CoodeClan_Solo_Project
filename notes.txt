@@ -1,0 +1,11 @@
+how to add a champion with the skills
+
+why edit comes back with an error
+
+why delete says method not allowed
+
+title is not coming up properly
+
+do I need a separate skills page
+
+how to load different set of images for each id 

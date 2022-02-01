@@ -10,13 +10,13 @@ champions_blueprint = Blueprint("champions", __name__)
 @champions_blueprint.route('/champions', methods=['GET'])
 def champions():
     champions = champion_repository.select_all()
-    return render_template('/champions/index.html', champions = champions)
+    return render_template('/champions/index.html', title = "Champion list", champions = champions)
 
 @champions_blueprint.route('/champions/<id>', methods=['GET'])
 def show_champion(id):
     champion = champion_repository.select(id)
     skills = champion_repository.skills(champion)
-    return render_template('champions/show.html', champion = champion, skills = skills)
+    return render_template('champions/show.html', title = champion.champion_name, champion = champion, skills = skills)
 
 @champions_blueprint.route('/champions/<id>/delete', methods=['GET'])
 def delete_champion(id):
@@ -28,7 +28,7 @@ def delete_champion(id):
 
 @champions_blueprint.route('/champions/new', methods=['GET'])
 def new_champion():
-    return render_template('champions/new.html')
+    return render_template('champions/new.html', title = "New")
 
 @champions_blueprint.route('/champions',  methods=['POST'])
 def create_champion():
@@ -46,7 +46,8 @@ def create_champion():
 @champions_blueprint.route('/champions/<id>/edit', methods=['GET'])
 def edit_champion(id):
     champion = champion_repository.select(id)
-    return render_template('champions/edit.html', champion = champion)
+    # pdb.set_trace()
+    return render_template('champions/edit.html', title = "Edit", champion = champion)
 
 @champions_blueprint.route('/champions/<id>', methods=['POST'])
 def update_champion(id):

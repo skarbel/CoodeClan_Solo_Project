@@ -10,7 +10,7 @@ body {
     flex-direction: row;
     justify-content: center;
     position: fixed;
-    left: -25px;
+    left: -33px;
     top: 0%;
     width: 100%;
 }
@@ -32,32 +32,121 @@ video {
 }
 
 a:link {
-    color: tomato;
+    color: white;
 }
 
 a:visited {
-    color: tomato;
+    color: white;
 }
 
-/* table {
+table {
     position: fixed;
     text-align: center;
     height: 30%;
     width: 45%;
-} */
+    top: 25%;
+    left: 27%;
+    margin: 0%;
+}
+
+.champion_head {
+    position: fixed;
+    text-align: center;
+    width: 45%;
+    top: 15%;
+    left: 27%;
+    margin: 0%;
+}
 
 .add_button {
     position: fixed; 
-    bottom:20px;
-    padding-left: 3px;
-    padding-right: 3px;
+    bottom:2%;
+    padding-left: 3%;
+    padding-right: 3%;
+    right: 2%;
 }
 
-table {
-    position: absolute;
-    top: 0.5em;
-    left: 0;
-    width: 100%;
-    margin: 0;
-    text-align: center
+.akali_pic {
+    height:500px;
+    position: fixed;
+    top: 26%;
+    left: 1%;
+    margin: 0%;
+    
 }
+
+.akali_pic > img {
+    width: auto; 
+    max-height: 100%; 
+}
+
+.char_pic {
+    background-image:url('/static/champion_images/{{champion.champion_name}}.webp');
+    height:500px;
+    position: fixed;
+    top: 20%;
+    left: 20%;
+    margin: 0%;
+    
+}
+
+.char_pic > img {
+    width: auto; 
+    max-height: 100%; 
+}
+
+.skill_list {
+    position: fixed;
+    text-align: center;
+    height: 50%;
+    width: 45%;
+    top: 27%;
+    right: 15%;
+    margin: 0%;
+}
+.char_info {
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    top: 10%;
+    left: 45%;
+    margin: 0%;
+}
+
+.char_buttons {
+    position: fixed; 
+    bottom:2%;
+    padding-left: 3%;
+    padding-right: 3%;
+    right: 2%;  
+}
+
+a.button3{
+    display:inline-block;
+    padding:0.3em 1.2em;
+    margin:0 0.3em 0.3em 0;
+    border-radius:2em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    font-weight:300;
+    color:#FFFFFF;
+    background-color:#4eb5f1;
+    text-align:center;
+    transition: all 0.2s;
+}
+a.button3:hover{
+    background-color:#4095c6;
+}
+
+@media all and (max-width:30em) {
+    a.button3{
+    display:block;
+    margin:0.2em auto;
+    }
+}
+
+
+
+
+

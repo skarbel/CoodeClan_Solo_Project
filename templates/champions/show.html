@@ -1,20 +1,26 @@
 {% extends "base.html" %}
 {% block content %}
-    <title> {{ champion.champion_name }} </title>
+    
 </head>
 <body>
-    <img src="/static/champion_images/{{champion.champion_name}}.webp" alt="champ" style background-image:url('/static/champion_images/{{champion.champion_name}}.webp') >
-    <p>Name: {{ champion.champion_name }} {{champion.champion_title}}</p>
-    <p>Class: {{ champion.champion_class }}</p>
-    <p>Skill List:</p>
-<ul>
-    {% for skill in skills %}
-    <ul> {{skill.skill_name}} </ul>
-    <img src="/static/skill_images/{{skill.skill_name}}.webp" alt="skill">
-    {% endfor %}
-</ul>
-<p><a href="/champions/{{champion.id}}/edit">Edit</a></p>
+    <div class = char_pic>
+        <img src="/static/champion_images/{{champion.champion_name}}.webp" alt="champ">
+    </div>
+    <div class = char_info>
+         {{ champion.champion_name }} {{ champion.champion_title}}
+    </div>
+    <div class = skill_list>
+        <ul>
+            {% for skill in skills %}
+            <ul> {{skill.skill_name}} </ul>
+            <img src="/static/skill_images/{{skill.skill_name}}.webp" alt="skill">
+            {% endfor %}
+        </ul>
+    </div>
+    <div class = char_buttons>
+        <a href="/champions/{{champion.id}}/edit" class="button3">Edit</a>
+        <a href="/champions/{{champion.id}}/delete"class="button3">Delete</a>
+    </div>
 
-<p><a href="/champions/{{champion.id}}/delete">Delete</a></p>
 </body>
 {% endblock %}

@@ -1,6 +1,7 @@
 from db.run_sql import run_sql
 from models.champion import Champion
 from models.skill import Skill
+import pdb
 
 
 def save(champion):
@@ -15,6 +16,7 @@ def select(id):
     sql = "SELECT * FROM champions WHERE id = %s"
     values = [id]
     result = run_sql(sql, values)[0]
+    # pdb.set_trace()
     if result is not None:
         champion = Champion(result['champion_name'], result['champion_title'], result['champion_class'], result['release_date'], result['id'])
     return champion

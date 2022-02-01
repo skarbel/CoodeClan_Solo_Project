@@ -1,31 +1,33 @@
 {% extends "base.html" %}
 {% block content %}
 
-<p> This is the champion edit Page.</p>
 
 <form action="/champions/{{champion.id}}" method="post">
-  <div>
-    <label for="champion_name">Name:</label>
-    <input type="text" id="champion_name" name="champion_name" value="{{champion.champion_name}}" required autofocus>
+  <div class = edit_new_menu>
+    <div>
+      <label for="champion_name">Name:</label>
+      <input type="text" id="champion_name" name="champion_name" value="{{champion.champion_name}}" required autofocus>
+    </div>
+
+    <div>
+      <label for="champion_title">Title:</label>
+      <input type="text" id="champion_title" name="champion_title" value="{{champion.champion_title}}">
+    </div>
+
+    <div>
+      <label for="class">Class:</label>
+      <input type="text" id="champion_class" name="champion_class" value="{{champion.champion_class}}">
+    </div>
+
+    <div>
+      <label for="release_date">Release date:</label>
+      <input type="text" id="release_date" name="release_date" value="{{champion.release_date}}">
+    </div>
   </div>
 
-  <div>
-    <label for="champion_title">Title:</label>
-    <input type="text" id="champion_title" name="champion_title" value="{{champion.champion_title}}">
-  </div>
-
-  <div>
-    <label for="class">Class:</label>
-    <input type="text" id="champion_class" name="champion_class" value="{{champion.champion_class}}">
-  </div>
-
-  <div>
-    <label for="release_date">Release date:</label>
-    <input type="text" id="release_date" name="release_date" value="{{champion.release_date}}">
-  </div>
-
+  <div class = edit_new_button>
     <button type="submit">Update</button>
-
+  </div>
 </form>
 
 {% endblock %}

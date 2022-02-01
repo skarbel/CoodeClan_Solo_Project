@@ -146,7 +146,17 @@ a.button3:hover{
     }
 }
 
+.edit_new_menu {
+    position: fixed;
+    text-align: right;
+    top: 27%;
+    right: 41%;
+}
 
-
-
+.edit_add_button {
+    position: fixed;
+    text-align: center;
+    top: 45%;
+    right: 48%;
+}
 

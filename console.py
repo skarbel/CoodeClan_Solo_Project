@@ -9,28 +9,28 @@ champion_repository.delete_all()
 skill_repository.delete_all()
 
 #-----------------------------Champion Pool-----------------------------
-champion1 = Champion("Zed", "the Master of Shadows", "Assassin", "13/11/2012")
+champion1 = Champion("Zed", "Master of Shadows", "Assassin", "13/11/2012")
 champion_repository.save(champion1)
 
-champion2 = Champion("Anivia", "the Cryophoenix", "Battle Mage", "10/07/2009")
+champion2 = Champion("Anivia", "Cryophoenix", "Battle Mage", "10/07/2009")
 champion_repository.save(champion2)
 
-champion3 = Champion("Leona", "the Radiant Dawn", "Vanguard", "13/17/2011")
+champion3 = Champion("Leona", "Radiant Dawn", "Vanguard", "13/17/2011")
 champion_repository.save(champion3)
 
-champion4 = Champion("Ziggs", "the Hexplosives Expert", "Artillery", "01/02/2012")
+champion4 = Champion("Ziggs", "Hexplosives Expert", "Artillery", "01/02/2012")
 champion_repository.save(champion4)
 
-champion5 = Champion("Ashe", "the Frost Archer", "Marksman", "21/02/2009")
+champion5 = Champion("Ashe", "Frost Archer", "Marksman", "21/02/2009")
 champion_repository.save(champion5)
 
-champion6 = Champion("Renekton", "the Butcher of the Sands", "Diver", "18/01/2011")
+champion6 = Champion("Renekton", "Butcher of the Sands", "Diver", "18/01/2011")
 champion_repository.save(champion6)
 
-champion7 = Champion("Urgot", "the Dreadnought", "Juggernaut", "24/08/2010")
+champion7 = Champion("Urgot", "Dreadnought", "Juggernaut", "24/08/2010")
 champion_repository.save(champion7)
 
-champion8 = Champion("Shaco", "the Demon Jester", "Assassin", "10/10/2009")
+champion8 = Champion("Shaco", "Demon Jester", "Assassin", "10/10/2009")
 champion_repository.save(champion8)
 
 

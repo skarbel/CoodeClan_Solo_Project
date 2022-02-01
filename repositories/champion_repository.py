@@ -21,7 +21,7 @@ def select(id):
 
 def select_all():
     champions = []
-    sql = "SELECT * FROM champions"
+    sql = "SELECT * FROM champions ORDER by champion_name ASC"
     results = run_sql(sql)
     for row in results:
         champion = Champion(row['champion_name'], row['champion_title'], row['champion_class'], row['release_date'], row['id'])

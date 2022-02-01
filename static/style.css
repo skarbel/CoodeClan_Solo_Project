@@ -2,8 +2,33 @@ body {
     background-image: url('/static/Back.jpg');
     background-size: cover;
     font-family: 'Courier New', Courier, monospace;
-    color: white;
-    
+    color: white;  
+}
+
+.menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: fixed;
+    left: -25px;
+    top: 0%;
+    width: 100%;
+}
+
+.footer {
+    position: fixed; 
+    bottom:20px;
+    padding-left: 3px;
+    padding-right: 3px;
+    font-size: 75%;
+}
+
+video {
+    height: 50%;
+    width: 65%;
+    display: block;
+    margin: 0 auto;
+    padding-top: 3%;
 }
 
 a:link {
@@ -12,4 +37,27 @@ a:link {
 
 a:visited {
     color: tomato;
+}
+
+/* table {
+    position: fixed;
+    text-align: center;
+    height: 30%;
+    width: 45%;
+} */
+
+.add_button {
+    position: fixed; 
+    bottom:20px;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+table {
+    position: absolute;
+    top: 0.5em;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    text-align: center
 }

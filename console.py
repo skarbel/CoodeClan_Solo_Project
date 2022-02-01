@@ -96,7 +96,7 @@ skill_repository.save(skill18)
 skill19 = Skill(champion5, "Hawkshot", "E")
 skill_repository.save(skill19)
 
-skill20 = Skill(champion5, "Menchanted Crystal Arrow", "R")
+skill20 = Skill(champion5, "Enchanted Crystal Arrow", "R")
 skill_repository.save(skill20)
 
 

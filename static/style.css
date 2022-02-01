@@ -1,0 +1,15 @@
+body {
+    background-image: url('/static/Back.jpg');
+    background-size: cover;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    
+}
+
+a:link {
+    color: tomato;
+}
+
+a:visited {
+    color: tomato;
+}

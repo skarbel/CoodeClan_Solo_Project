@@ -46,7 +46,6 @@ def create_champion():
 @champions_blueprint.route('/champions/<id>/edit', methods=['GET'])
 def edit_champion(id):
     champion = champion_repository.select(id)
-    # pdb.set_trace()
     return render_template('champions/edit.html', title = "Edit", champion = champion)
 
 @champions_blueprint.route('/champions/<id>', methods=['POST'])

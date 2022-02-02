@@ -9,7 +9,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    position: fixed;
+    position:relative;
     left: -33px;
     top: 0%;
     width: 100%;
@@ -17,7 +17,8 @@ body {
 
 .footer {
     position: fixed; 
-    bottom:20px;
+    bottom:1%;
+    left: 33%;
     padding-left: 3px;
     padding-right: 3px;
     font-size: 75%;
@@ -33,6 +34,7 @@ video {
 
 a:link {
     color: white;
+    text-decoration: None;
 }
 
 a:visited {
@@ -160,3 +162,54 @@ a.button3:hover{
     right: 48%;
 }
 
+
+
+.map {
+    height:500px;
+    position: fixed;
+    top: 7%;
+    left: 24%;
+    margin: 0%;
+    
+}
+
+.map > img {
+    width: auto; 
+    max-height: 100%; 
+}
+
+.lux {
+    height:400px;
+    position: fixed;
+    top: 8%;
+    right: 1%;
+    margin: 0%;
+    
+}
+
+.lux > img {
+    width: auto; 
+    max-height: 100%; 
+}
+
+.jinx {
+    height:400px;
+    position: fixed;
+    top: 8%;
+    left: 1%;
+    margin: 0%;
+    
+}
+
+.jinx > img {
+    width: auto; 
+    max-height: 100%; 
+}
+
+.description {
+    position:fixed;
+    top: 80%;
+    padding-left: 3px;
+    padding-right: 3px;
+    font-size: 75%;
+}

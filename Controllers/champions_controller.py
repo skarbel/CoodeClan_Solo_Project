@@ -58,3 +58,8 @@ def update_champion(id):
     champion = Champion(champion_name, champion_title, champion_class, release_date, id)
     champion_repository.update(champion)
     return redirect('/champions')
+
+
+@champions_blueprint.route('/about')
+def home():
+    return render_template('/about.html', title = "About")
